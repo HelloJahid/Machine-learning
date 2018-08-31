@@ -1,1 +1,6 @@
 
+A recurrent neural network (RNN) is a class of artificial neural network where connections between nodes form a directed graph along a sequence. This allows it to exhibit temporal dynamic behavior for a time sequence. Unlike feedforward neural networks, RNNs can use their internal state (memory) to process sequences of inputs. This makes them applicable to tasks such as unsegmented, connected handwriting recognition[1] or speech recognition.(https://en.wikipedia.org/wiki/Recurrent_neural_network)
+
+
+Recurrent neuralnetworks (RNN), a class of nets that can predict the future (well, up to apoint, of course). They can analyze time series data such as stock prices, and tell you when to buy or sell. In autonomous driving systems, they can
+anticipate car trajectories and help avoid accidents. More generally, they canwork on sequences of arbitrary lengths, rather than on fixed-sized inputs likeall the nets we have discussed so far. For example, they can take sentences,documents, or audio samples as input, making them extremely useful fornatural language processing (NLP) systems such as automatic translation,speech-to-text, or sentiment analysis (e.g., reading movie reviews and extracting the rater’s feeling about the movie).
