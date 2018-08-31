@@ -90,23 +90,3 @@ with tf.Session() as sess:
 
 
 
-
-"""
-# Tensflow Session
-with tf.Session() as sess:
-    sess.run(init)
-
-    for epoch in range(num_epochs):
-        start_time = time.time()
-        for X_batch, y_batch in shuffle_index(X_train, y_train_5, batch_size):
-            sess.run(training_op, feed_dict={X:X_batch, y:y_batch})
-
-        acc_train = accuracy.eval(feed_dict={X:X_batch, y:y_batch})
-        acc_test = accuracy.eval(feed_dict={X:X_test, y:y_test_5})
-        end_time = time.time()
-
-        print("Epoch "+str(epoch+1)+" completed : Time usage "+str(int(end_time-start_time))+" seconds")
-        print("\tAccuracy:")
-        print ("\t- Training Accuracy:\t{}".format(train_accuracy))
-
-"""
