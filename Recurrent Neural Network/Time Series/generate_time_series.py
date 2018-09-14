@@ -1,18 +1,6 @@
 import pandas as pd
 
-df = pd.DataFrame()
-
-df['t'] = [x for x in range(10)]
-df['t-1'] = df['t'].shift()
-
-
-from pandas import DataFrame
-from pandas import concat
-
-from pandas import DataFrame
-from pandas import concat
-
-def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
+def prior_to_next_value_generation(data, n_in=1, n_out=1, dropnan=True):
 	"""
 	Frame a time series as a supervised learning dataset.
 	Arguments:
@@ -24,7 +12,7 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 		Pandas DataFrame of series framed for supervised learning.
 	"""
 	n_vars = 1 if type(data) is list else data.shape[1]
-	df = DataFrame(data)
+	df = pd.DataFrame(data)
 	cols, names = list(), list()
 	# input sequence (t-n, ... t-1)
 	for i in range(n_in, 0, -1):
@@ -38,7 +26,7 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 		else:
 			names += [('var%d(t+%d)' % (j+1, i)) for j in range(n_vars)]
 	# put it all together
-	agg = concat(cols, axis=1)
+	agg = pd.concat(cols, axis=1)
 	agg.columns = names
 	# drop rows with NaN values
 	if dropnan:
@@ -47,5 +35,5 @@ def series_to_supervised(data, n_in=1, n_out=1, dropnan=True):
 
 
 values = [x for x in range(10)]
-data = series_to_supervised(values, 2)
+data = prior_to_next_value_generation(values, 2)
 print(data)
